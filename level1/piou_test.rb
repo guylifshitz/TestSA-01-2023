@@ -7,12 +7,12 @@ describe Translator do
   describe "translating pioupiou to french" do
     context "with valid input" do
       it "translates correctly" do
-        fail :not_implemented
+        expect(Translator.pioupiou_to_french("poup poui piou piup")).to eq("CHAT")
       end
     end
     context "with bad input" do
       it "should handle bad input" do
-        fail :not_implemented
+        expect(Translator.pioupiou_to_french("poupa poui fu piup")).to eq("#H#T")
       end
     end
   end
@@ -20,12 +20,12 @@ describe Translator do
   describe "translating french to pioupiou" do
     context "with valid input" do
       it "translates correctly" do
-        fail :not_implemented
+        expect(Translator.french_to_pioupiou("CHAT")).to eq("poup poui piou piup")
       end
     end
     context "with bad input" do
       it "should handle bad input" do
-        fail :not_implemented
+        expect(Translator.french_to_pioupiou("AD$:@")).to eq("piou iiou ERROR ERROR ERROR")
       end
     end
   end
