@@ -1,6 +1,8 @@
 body
 	h1 Messages
 
+	= link_to("New Message", new_message_path())
+
 	- if @messages.any?
 		table class="message-table"
 			thead
