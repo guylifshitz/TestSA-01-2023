@@ -1,0 +1,28 @@
+body
+	h1 Messages
+
+	- if @messages.any?
+		table class="message-table"
+			thead
+				tr
+					th AUTHOR
+					th FRENCH
+					th PIOUPIOU
+					th TAG
+					th LINK
+			tbody
+				- for message in @messages
+					tr
+						td.author
+							= message.author
+						td.text_french
+							= message.body_french
+						td.text_pioupiou
+							= message.body_pioupiou
+						td.tag
+							= message.tag.name
+						td.link
+							= link_to("link", message_path(message))
+
+	- else
+		p No messages

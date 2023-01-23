@@ -1,0 +1,37 @@
+$primary-color: green;
+$second-color: violet;
+
+body {
+    background-color: $primary-color
+}
+
+h1 {
+    color: $second-color;
+}
+
+.message {
+    background-color: $second-color;
+    padding: 0.5em;
+    width: fit-content;
+    margin: 1em;
+    border-radius: 1em;
+}
+
+table {
+    background-color: $second-color;
+    padding: 0.2em;
+    width: fit-content;
+    margin: 1em;
+    border-radius: 1em;
+    border: 1em solid black;
+    border-collapse: collapse;
+}
+
+th {
+    border: 0.3em solid black;
+}
+
+
+td {
+    border: 0.5em solid black;
+}
