@@ -1,6 +1,15 @@
 class MessagesController < ApplicationController
+  include Pagy::Backend
   def index
     @messages = Message.all
+
+    per_page = params[:per_page] 
+    @pagy, @records = pagy(Message.all, items: per_page)
+  
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @records.as_json(:include => {:tag => {:only => [:name, :id]}}) }
+    end
   end
 
   def new 
@@ -14,21 +23,18 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
       else
         @tags = Tag.all
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
   end
   
   def show
     @message = Message.find(params[:id])
-
     respond_to do |format|
       format.html
-      format.json  { render :json => @post }
+      format.json  { render :json => @message.as_json(:include => {:tag => {:only => [:name, :id]}}) }
     end
   end
 
@@ -37,7 +43,15 @@ class MessagesController < ApplicationController
   def index_by_tag
     tag_id = Tag.where(name: params[:name])
     @messages = Message.where(tag_id: tag_id)
-    render "index"
+
+    per_page = params[:per_page] 
+    @pagy, @records = pagy(@messages.all, items: per_page)
+
+    respond_to do |format|
+      format.html  {render "index"}
+      format.json  { render :json => @records.as_json(:include => {:tag => {:only => [:name, :id]}}) }
+    end
+
   end
   
 

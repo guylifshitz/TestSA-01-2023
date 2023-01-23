@@ -75,3 +75,6 @@ end
 
 # Slim templates
 gem "slim"
+
+# Pagination with pagy
+gem 'pagy'
