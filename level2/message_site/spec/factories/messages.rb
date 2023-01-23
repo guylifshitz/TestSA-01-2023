@@ -2,7 +2,7 @@
 FactoryBot.define do
 
     factory :message do
-        tag
+        tag factory: :tag
         author { 'John' }
         body_french {}
         body_pioupiou {}
@@ -12,7 +12,11 @@ FactoryBot.define do
         trait :has_pioupiou do
             body_pioupiou { "pouu ioui piiu uiui piui iiou ioui ipuu" }
         end
+        trait :is_rigolo do
+            tag factory: :rigolo_tag
+        end
 
+        factory :rigolo_message, traits: [:is_rigolo]
         factory :message_with_only_french, traits: [:has_french]
         factory :message_with_only_pioupiou, traits: [:has_pioupiou]
         factory :message_with_both_langauges, traits: [:has_french, :has_pioupiou]

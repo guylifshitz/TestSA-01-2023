@@ -1,0 +1,27 @@
+<%= form_with(model: message) do |form| %> 
+    <div>
+      <%= form.label :author, style: "display: block" %>
+      <%= form.text_field :author %>
+    </div>
+  
+    <div>
+      <%= form.label :body_french, style: "display: block" %>
+      <%= form.text_area :body_french %>
+    </div>
+  
+    <div>
+      <%= form.label :body_pioupiou, style: "display: block" %>
+      <%= form.text_area :body_pioupiou %>
+    </div>
+  
+    <div>
+      <%= form.label :tag_id, style: "display: block" %>
+      <%= form.select :tag_id, @tags.map { |t| [t.name, t.id]} %>
+      </div>
+  
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+  
+  
