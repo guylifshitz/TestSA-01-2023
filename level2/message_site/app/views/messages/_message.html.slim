@@ -1,22 +1,22 @@
-<div id="<%= dom_id message %>">
+<div id="<%= dom_id message %>" class="message">
   <p>
 	<strong>Author:</strong>
-	<%= message.author %>
+	= message.author
   </p>
 
   <p>
 	<strong>Body french:</strong>
-	<%= message.body_french %>
+	= message.body_french 
   </p>
 
   <p>
 	<strong>Body pioupiou:</strong>
-	<%= message.body_pioupiou %>
+	= message.body_pioupiou
   </p>
 
   <p>
 	<strong>Tag:</strong>
-	<%= message.tag.name %>
+	= message.tag.name
   </p>
 
 </div>

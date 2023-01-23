@@ -13,6 +13,10 @@ module MessageSite
 
     # Configuration for the application, engines, and railties goes here.
     #
+
+    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+    config.assets.precompile += %w( print.css )
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

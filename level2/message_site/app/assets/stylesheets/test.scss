@@ -1,0 +1,13 @@
+$color: green;
+
+body {
+    background-color: $color
+}
+
+.message {
+    background-color: violet;
+    padding: 0.2em;
+    width: fit-content;
+    margin: 1em;
+    border-radius: 1em;
+}
